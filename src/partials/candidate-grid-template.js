@@ -39,6 +39,7 @@ class CandidateGrid extends React.Component {
                         gridRowStart: 1,
                         gridColumnEnd: 1,
                         gridRowEnd: 1,
+                        borderRadius: '1em'
                     },
                     '& .content': {
                         display: 'flex',
@@ -73,9 +74,25 @@ class CandidateGrid extends React.Component {
                     <GLOBAL_STYLE.P className="owner">{this.props.data.owner}</GLOBAL_STYLE.P>
                     <GLOBAL_STYLE.H6 className="voteCount">{this.props.data.value}S</GLOBAL_STYLE.H6>
                 </div>
-                <GLOBAL_STYLE.Button className="voteButton" onClick={this.VoteCandidate}>
-                    Vote for {this.props.data.name}
-                </GLOBAL_STYLE.Button>
+                {
+                    this.props.electionState === 4 // voting open
+                    ? (
+                        this.props.activeUser // has logged in
+                        ? (
+                    <React.Fragment>
+                        <GLOBAL_STYLE.Button className="voteButton" onClick={this.VoteCandidate}>
+                            Vote for {this.props.data.name}
+                        </GLOBAL_STYLE.Button>
+                    </React.Fragment>
+                        ) 
+                        : (// could add something like this: <span className="alert">Login to vote</span>
+                    <React.Fragment></React.Fragment>
+                        )
+                    ) 
+                    : (
+                <React.Fragment></React.Fragment>
+                    )
+                }
                 <GLOBAL_STYLE.CustomLink text className="candidateLink" to={'/candidates/' + this.props.data.owner}>
                     Learn more about {this.props.data.name}
                 </GLOBAL_STYLE.CustomLink>
