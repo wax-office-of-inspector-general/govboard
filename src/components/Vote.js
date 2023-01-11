@@ -107,8 +107,7 @@ class Vote extends React.Component {
                         candidates: newCandidates,
                     });
                 }
-
-                this.setState({
+               this.setState({
                     ballot: activeBallot.ballot,
                     title: activeBallot.title,
                     description: activeBallot.description,
@@ -488,7 +487,7 @@ class Vote extends React.Component {
                                         {this.state.candidates
                                             .slice(this.state.prevPage, this.state.nextPage)
                                             .map((candidate, key) => (
-                                                <CandidateGrid data={candidate} ballot={this.props.ballot} activeUser={this.props.activeUser} />
+                                                <CandidateGrid data={candidate} ballot={this.props.ballot} activeUser={this.props.activeUser} electionState={this.props.electionState} />
                                             ))}
                                     </React.Fragment>
                                 ) : (

@@ -1,6 +1,6 @@
 {
   "name": "govboard",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": true,
   "proxy": "http://localhost:3000",
   "dependencies": {
@@ -26,6 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:testnet": "env-cmd -f .env.testnet react-scripts start",
+    "start:prod": "env-cmd -f .env.production react-scripts start",
     "build": "react-scripts build",
     "build:testnet": "env-cmd -f .env.testnet react-scripts build",
     "build:prod": "env-cmd -f .env.production react-scripts build",
