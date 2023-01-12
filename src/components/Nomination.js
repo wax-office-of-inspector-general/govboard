@@ -96,7 +96,7 @@ class Nomination extends React.Component {
                     authorization: [
                         {
                             actor: this.state.activeUser.accountName,
-                            permission: 'active',
+                            permission: this.state.activeUser.requestPermission,
                         },
                     ],
                     data: {
@@ -137,7 +137,7 @@ class Nomination extends React.Component {
                         authorization: [
                             {
                                 actor: this.props.accountName,
-                                permission: 'active',
+                                permission: this.state.activeUser.requestPermission,
                             },
                         ],
                         data: {
@@ -174,7 +174,7 @@ class Nomination extends React.Component {
                         authorization: [
                             {
                                 actor: this.props.accountName,
-                                permission: 'active',
+                                permission: this.state.activeUser.requestPermission,
                             },
                         ],
                         data: {
@@ -213,7 +213,7 @@ class Nomination extends React.Component {
                             authorization: [
                                 {
                                     actor: this.props.accountName,
-                                    permission: 'active',
+                                    permission: this.state.activeUser.requestPermission,
                                 },
                             ],
                             data: {
