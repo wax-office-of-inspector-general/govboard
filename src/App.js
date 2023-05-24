@@ -22,7 +22,9 @@ import Nomination from './components/Nomination';
 import About from './components/About';
 import ErrorPage from './components/ErrorPage';
 
-const wax = new waxjs.WaxJS(process.env.REACT_APP_WAX_RPC, null, null, false);
+const wax = new waxjs.WaxJS({
+    rpcEndpoint: process.env.REACT_APP_WAX_RPC
+});
 
 class App extends React.Component {
     constructor(props){
@@ -55,7 +57,6 @@ class App extends React.Component {
         this.setState({ appInitialized: true, error: this.props.ual.message });
         //TODO: render error message
       }
-      console.log(this.state);
     }
 
     async updateAccountName(): Promise<void> {
@@ -244,7 +245,7 @@ class App extends React.Component {
                                         <GLOBAL_STYLE.H5>Candidates</GLOBAL_STYLE.H5>
                                     </NavLink>
                                     <img src={BlueBee} className="blueBee" alt="Drawed bee with blue stroke" />
-                                    <GLOBAL_STYLE.Button text id="login" onClick={this.props.ual.showModal}>
+                                    <GLOBAL_STYLE.Button id="login" onClick={this.props.ual.showModal}>
                                         Login
                                     </GLOBAL_STYLE.Button>
                                 </React.Fragment>

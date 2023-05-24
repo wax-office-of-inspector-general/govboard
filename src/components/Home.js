@@ -10,7 +10,6 @@ import oigLogo from '../assets/waxOIGTransparent-small.png';
 
 import { jsx } from '@emotion/react';
 import * as GLOBAL_STYLE from '../theme';
-import IGinfo from './IGInfo';
 
 class Home extends React.Component {
 
@@ -103,7 +102,7 @@ class Home extends React.Component {
                             />
                             <div className="nextElectionDate">
                                 <GLOBAL_STYLE.H4 className="electionDateHeadline">Next elections</GLOBAL_STYLE.H4>
-                                <GLOBAL_STYLE.H1 className="electionMonth">July 2022</GLOBAL_STYLE.H1>
+                                <GLOBAL_STYLE.H1 className="electionMonth">June 2023</GLOBAL_STYLE.H1>
                             </div>
                             <img
                                 src={BeePack}
@@ -191,7 +190,6 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <IGinfo/>
             </div>
         );
   }

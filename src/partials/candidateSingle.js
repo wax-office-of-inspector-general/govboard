@@ -13,7 +13,9 @@ import telegram from "../assets/telegram.svg";
 import wechat from "../assets/wechat.svg";
 import { submitVote } from "../middleware.js";
 
-const wax = new waxjs.WaxJS(process.env.REACT_APP_WAX_RPC, null, null, false);
+const wax = new waxjs.WaxJS({
+    rpcEndpoint: process.env.REACT_APP_WAX_RPC
+});
 
 class CandidateSingle extends React.Component {
     constructor(props) {

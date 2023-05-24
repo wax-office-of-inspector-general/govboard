@@ -14,7 +14,9 @@ import { formatTime, formatDate } from '../utils/utils';
 
 import ItemPolygon from '../assets/blueBee.svg';
 
-const wax = new waxjs.WaxJS(process.env.REACT_APP_WAX_RPC, null, null, false);
+const wax = new waxjs.WaxJS({
+    rpcEndpoint: process.env.REACT_APP_WAX_RPC
+});
 
 
 

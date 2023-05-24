@@ -9,7 +9,9 @@ import { withUAL } from 'ual-reactjs-renderer';
 import { jsx } from '@emotion/react';
 import * as GLOBAL_STYLE from '../theme';
 
-const wax = new waxjs.WaxJS(process.env.REACT_APP_WAX_RPC, null, null, false);
+const wax = new waxjs.WaxJS({
+    rpcEndpoint: process.env.REACT_APP_WAX_RPC
+});
 
 class Nomination extends React.Component {
     constructor(props) {
@@ -96,7 +98,7 @@ class Nomination extends React.Component {
                     authorization: [
                         {
                             actor: this.state.activeUser.accountName,
-                            permission: 'active',
+                            permission: this.state.activeUser.requestPermission,
                         },
                     ],
                     data: {
@@ -136,12 +138,12 @@ class Nomination extends React.Component {
                         name: 'proclaim',
                         authorization: [
                             {
-                                actor: this.props.accountName,
-                                permission: 'active',
+                                actor: this.state.activeUser.accountName,
+                                permission: this.state.activeUser.requestPermission,
                             },
                         ],
                         data: {
-                            nominee: this.props.accountName,
+                            nominee: this.state.activeUser.accountName,
                             decision: true,
                         },
                     },
@@ -174,7 +176,7 @@ class Nomination extends React.Component {
                         authorization: [
                             {
                                 actor: this.props.accountName,
-                                permission: 'active',
+                                permission: this.state.activeUser.requestPermission,
                             },
                         ],
                         data: {
@@ -212,8 +214,8 @@ class Nomination extends React.Component {
                             name: 'nominf',
                             authorization: [
                                 {
-                                    actor: this.props.accountName,
-                                    permission: 'active',
+                                    actor: this.state.activeUser.accountName,
+                                    permission: this.state.activeUser.requestPermission,
                                 },
                             ],
                             data: {
