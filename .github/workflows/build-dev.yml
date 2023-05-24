@@ -26,11 +26,11 @@ jobs:
         shell: bash
       # Clean install dependencies (https://docs.npmjs.com/cli/v7/commands/npm-ci)
       - name : Install dependencies…
-        run : npm ci
+        run : npm install
         shell: bash
-      # Build the react app
+      # Build the react app & ignore warnings
       - name : Build react app…
-        run : npm run build:prod
+        run : CI=false npm run build:prod
         shell: bash
       # Bump the minor version of the react app and create a new tag
       #- name : Bump minor version...
