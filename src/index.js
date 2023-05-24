@@ -30,7 +30,7 @@ const UALConsumer = withUAL(App);
 ReactDOM.render(
     <UALProvider chains={[waxChain]} authenticators={[waxcloud, anchor]} appName="govboard">
         <Global styles={css`${normalize}`}/>
-        <Router>
+        <Router basename="/govboard">
             <UALConsumer />
         </Router>
     </UALProvider>,
