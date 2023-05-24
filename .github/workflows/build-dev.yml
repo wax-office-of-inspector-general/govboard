@@ -16,8 +16,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    using: 'composite'
-    steps: 
+    steps:
+      # clone repo
+      - name: Clone repository
+        uses: actions/checkout@v3
       # Configure the commit signature to come from github-actions at github-actions@github.com
       - name : Configure git username and email…
         run : git config user.name github-actions && git config user.email github-actions@github.com
