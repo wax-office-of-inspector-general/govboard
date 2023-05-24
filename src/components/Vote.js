@@ -91,7 +91,6 @@ class Vote extends React.Component {
 
                 let electionState = election.rows[0].state;
 
-                console.log(this.state.electionState);
                 if(electionState === 4){
 
                     let newCandidates = [];
@@ -140,7 +139,6 @@ class Vote extends React.Component {
             if (resp.rows.length > 10) {
                 displayPagination = 1;
             }
-            console.log(resp.rows);
             let maxPage = resp.rows.length / 10;
             this.setState({
                 candidates: resp.rows,
@@ -169,7 +167,7 @@ class Vote extends React.Component {
                 prevPage: prevPage,
                 candidatePage: candidatePage,
             });
-            console.log(this.state);
+            
         } else if (
             this.state.maxPage - this.state.candidatePage < 1 &&
             this.state.nextPage !== this.state.candidates.length
@@ -181,7 +179,7 @@ class Vote extends React.Component {
                 prevPage: prevPage,
                 ceilingReached: 1,
             });
-            console.log(this.state);
+            
         }
     }
 
@@ -203,7 +201,6 @@ class Vote extends React.Component {
                 candidatePage: candidatePage,
                 ceilingReached: 0,
             });
-            console.log(nextPage);
         } else {
             let prevPage = this.state.prevPage - 10;
             let nextPage = this.state.nextPage - 10;
@@ -214,7 +211,7 @@ class Vote extends React.Component {
                 ceilingReached: 0,
             });
         }
-        console.log(this.state);
+        
     }
 
     renderPagination() {
@@ -406,7 +403,6 @@ class Vote extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         if (this.props.electionState === 0) {
             return (
                 <GLOBAL_STYLE.PageContent>
@@ -449,7 +445,6 @@ class Vote extends React.Component {
                 </GLOBAL_STYLE.PageContent>
             );
         } else {
-            console.log(this.state.candidates);
             return (
                 <GLOBAL_STYLE.PageContent>
                     <Route exact path="/candidates">
@@ -531,7 +526,6 @@ class Winner extends Vote {
             upper_bound: this.props.data.key,
             json: true,
         });
-        console.log(resp);
         if (Array.isArray(resp.rows) && resp.rows.length !== 0) {
             this.setState({
                 name: resp.rows[0].name,

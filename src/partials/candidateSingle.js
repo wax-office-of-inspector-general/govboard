@@ -83,7 +83,7 @@ class CandidateSingle extends React.Component {
                 this.setState({
                     redirect: 1,
                 });
-                console.log(this.state);
+                
             }
             let voteCount = "0 VOTE";
             if (
@@ -92,14 +92,12 @@ class CandidateSingle extends React.Component {
                 Array.isArray(voteCounts.rows) &&
                 voteCounts.rows.length !== 0
             ) {
-                console.log(voteCounts.rows[0].options);
                 voteCount = voteCounts.rows[0].options.find((obj) => obj.key === resp.rows[0].owner).value;
             }
             let refresh = this.state.refresh;
             if (refresh === 1) {
                 refresh = 0;
             }
-            console.log(voteCount);
             this.setState({
                 nominee: resp.rows[0].owner,
                 name: resp.rows[0].name,
@@ -118,16 +116,13 @@ class CandidateSingle extends React.Component {
 
     async VoteCandidate() {
         await submitVote(this.props.activeUser, this.state.ballot, this.state.nominee);
-        console.log(this.state.refresh);
         this.setState({
             refresh: 1,
         });
-        console.log(this.state.refresh);
     }
 
     componentDidUpdate() {
         const owner = this.props.match.params.owner;
-        console.log(this.state.refresh);
         if (this.state.refresh === 1) {
             return this.fetchData(owner);
         }

@@ -72,7 +72,7 @@ class App extends React.Component {
       const { ual: { activeUser, activeAuthenticator, logout } } = this.props
        if (activeUser && activeAuthenticator) {
         return (
-            <GLOBAL_STYLE.Button tiny text onClick={logout}>
+            <GLOBAL_STYLE.Button tiny="true" text="true" onClick={logout}>
               {'Logout'}
             </GLOBAL_STYLE.Button>
         )
@@ -245,7 +245,7 @@ class App extends React.Component {
                                         <GLOBAL_STYLE.H5>Candidates</GLOBAL_STYLE.H5>
                                     </NavLink>
                                     <img src={BlueBee} className="blueBee" alt="Drawed bee with blue stroke" />
-                                    <GLOBAL_STYLE.Button id="login" onClick={this.props.ual.showModal}>
+                                    <GLOBAL_STYLE.Button text="true" id="login" onClick={this.props.ual.showModal}>
                                         Login
                                     </GLOBAL_STYLE.Button>
                                 </React.Fragment>

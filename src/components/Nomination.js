@@ -64,7 +64,6 @@ class Nomination extends React.Component {
                         upper_bound: this.props.accountName,
                         json: true,
                     });
-                    console.log(nomineeInfo);
                     if (Array.isArray(nomineeInfo.rows) && nomineeInfo.rows.length !== 0) {
                         const name = 'name' in nomineeInfo.rows[0] ? nomineeInfo.rows[0].name : '';
                         const picture = 'picture' in nomineeInfo.rows[0] ? nomineeInfo.rows[0].picture : '';
@@ -82,7 +81,6 @@ class Nomination extends React.Component {
                         });
                     }
                 }
-                console.log(this.state);
             }
         } catch (e) {
             console.log(e);

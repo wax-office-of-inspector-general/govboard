@@ -33,7 +33,6 @@ export default function RenderIGInfo(props) {
                 } else {
                     setIGInfoList([]);
                 }
-                console.log(resp.rows);
             } catch(e){
                 console.log(e);
             }
