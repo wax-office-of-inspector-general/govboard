@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/govboard/static/css/main.398f05ae.css",
+    "main.js": "/govboard/static/js/main.df692a8d.js",
+    "static/media/waxOIGTransparent-small.png": "/govboard/static/media/waxOIGTransparent-small.dc34b1583113f1ca8040.png",
+    "static/media/bees.svg": "/govboard/static/media/bees.0728d4ec36c5f829967084623686bd1f.svg",
+    "static/media/hive.svg": "/govboard/static/media/hive.0d8b38e92407a64177bed1b28ba23d43.svg",
+    "static/media/hamburguer.svg": "/govboard/static/media/hamburguer.e48c5938085079bebb2301b0c965aec7.svg",
+    "static/media/crest.svg": "/govboard/static/media/crest.593c37baa98519eb8d6f91c2de9ab148.svg",
+    "static/media/blueBee.svg": "/govboard/static/media/blueBee.441a1e86ce3b669950b9128a18f751b6.svg",
+    "static/media/bee-pack.svg": "/govboard/static/media/bee-pack.26c9f8dcd5bc83fc8fec46080b823afd.svg",
+    "static/media/wax-primary-logo.png": "/govboard/static/media/wax-primary-logo.b7eaa0a2d6932531d2ef.png",
+    "static/media/builtWithLove.svg": "/govboard/static/media/builtWithLove.155402c53e565d4eef4fc7b08c36ef59.svg",
+    "static/media/powered-by-WAX.svg": "/govboard/static/media/powered-by-WAX.70749e3c580c8432e5c886555e8adacf.svg",
+    "static/media/wechat.svg": "/govboard/static/media/wechat.b0fc4bb50bd55e5df02272655249c5e5.svg",
+    "static/media/notion.svg": "/govboard/static/media/notion.cebae1ae3ca7dbd0163f528595997bd2.svg",
+    "static/media/twitter.svg": "/govboard/static/media/twitter.6baee0a904948649a497564970389bb1.svg",
+    "static/media/medium.svg": "/govboard/static/media/medium.51126a7bbefd423639940194c62a3e62.svg",
+    "index.html": "/govboard/index.html",
+    "static/media/itemPolygon.svg": "/govboard/static/media/itemPolygon.8b528195cc1611433ea97bae8e5a5efe.svg",
+    "static/media/telegram.svg": "/govboard/static/media/telegram.5076b7aac68a2a1a0b4aa13de42696ac.svg",
+    "main.398f05ae.css.map": "/govboard/static/css/main.398f05ae.css.map",
+    "main.df692a8d.js.map": "/govboard/static/js/main.df692a8d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.398f05ae.css",
+    "static/js/main.df692a8d.js"
+  ]
+}
