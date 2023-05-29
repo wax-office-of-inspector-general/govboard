@@ -9,7 +9,9 @@ import RenderIGCard from './IGCard';
 import * as GLOBAL_STYLE from '../theme';
 
 
-const wax = new waxjs.WaxJS(process.env.REACT_APP_WAX_RPC, null, null, false);
+const wax = new waxjs.WaxJS({
+    rpcEndpoint: process.env.REACT_APP_WAX_RPC
+});
 
 export default function RenderIGInfo(props) {
 
@@ -31,7 +33,6 @@ export default function RenderIGInfo(props) {
                 } else {
                     setIGInfoList([]);
                 }
-                console.log(resp.rows);
             } catch(e){
                 console.log(e);
             }

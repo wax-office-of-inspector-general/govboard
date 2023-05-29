@@ -5,7 +5,6 @@ import * as serviceWorker from './serviceWorker';
 import { UALProvider, withUAL } from 'ual-reactjs-renderer';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-import { Scatter } from 'ual-scatter';
 import { Anchor } from 'ual-anchor';
 import { Wax } from '@eosdacio/ual-wax';
 
@@ -23,16 +22,15 @@ const waxChain = {
   }]
 }
 
-const scatter = new Scatter([waxChain], { appName: 'govboard' });
 const anchor = new Anchor([waxChain], { appName: 'govboard' });
 const waxcloud = new Wax([waxChain], { appName: 'govboard' });
 const UALConsumer = withUAL(App);
 
 
 ReactDOM.render(
-    <UALProvider chains={[waxChain]} authenticators={[waxcloud, anchor, scatter]} appName="govboard">
+    <UALProvider chains={[waxChain]} authenticators={[waxcloud, anchor]} appName="govboard">
         <Global styles={css`${normalize}`}/>
-        <Router>
+        <Router basename="/govboard">
             <UALConsumer />
         </Router>
     </UALProvider>,

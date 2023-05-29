@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+name: 'Deploy React-app to gh-pages'
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # clone repo
+      - name: Clone repository
+        uses: actions/checkout@v3
+      # Configure the commit signature to come from github-actions at github-actions@github.com
+      - name : Configure git username and email…
+        run : git config user.name github-actions && git config user.email github-actions@github.com
+        shell: bash
+      # Clean install dependencies (https://docs.npmjs.com/cli/v7/commands/npm-ci)
+      - name : Install dependencies…
+        run : npm install
+        shell: bash
+      # Build the react app & ignore warnings
+      - name : Build react app…
+        run : CI=false npm run build:prod
+        shell: bash
+      # Bump the minor version of the react app and create a new tag
+      #- name : Bump minor version...
+      #  run : npm version minor
+      #  shell: bash
+      # Add all changes from the work-tree
+      - name : Add changes from the working tree…
+        run : git --work-tree build add --all
+        shell: bash
+      # Commit all changes (automatically deploys commit with the current version number via grep)
+      - name : Commit changes…
+        run : git commit -m "deploying react-app to gh-pages"
+        #run : git commit -m "Automatically deploying v$(npm version | grep 'site' | grep -E -o "[0-9]+\.[0-9]+\.[0-9]+[^']*")"
+        shell: bash
+      # Push the changes to the gh-pages branch
+      - name : Push changes to gh-pages branch…
+        run : git push origin HEAD:gh-pages --force
+        shell: bash

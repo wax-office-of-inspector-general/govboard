@@ -1,13 +1,12 @@
 export async function submitVote (activeUser, ballotName, voteOption) {
 try {
-    console.log(ballotName);
     let actions = [
         {
             account: 'oig',
             name: 'regvoter',
             authorization: [{
                 actor: activeUser.accountName,
-                permission: 'active',
+                permission: activeUser.requestPermission,
             }],
             data: {
                 voter: activeUser.accountName,
@@ -20,7 +19,7 @@ try {
         name: 'sync',
         authorization: [{
           actor: activeUser.accountName,
-          permission: 'active',
+          permission: activeUser.requestPermission,
         }],
         data: {
           voter: activeUser.accountName,
@@ -31,7 +30,7 @@ try {
         name: 'updtstate',
         authorization: [{
           actor: activeUser.accountName,
-          permission: 'active',
+          permission: activeUser.requestPermission,
         }],
         data: {}
       },
@@ -40,7 +39,7 @@ try {
         name: 'castvote',
         authorization: [{
           actor: activeUser.accountName,
-          permission: 'active',
+          permission: activeUser.requestPermission,
         }],
         data: {
           voter: activeUser.accountName,

@@ -11,7 +11,6 @@ const IMAGE_WIDTH = 250;
 
 
 export default function RenderIGCard(props) {
-    console.log(props.igInfo.term);
     return (
         <div
             css={{

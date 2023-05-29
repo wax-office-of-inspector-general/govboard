@@ -14,7 +14,6 @@ class CandidateGrid extends React.Component {
         this.VoteCandidate = this.VoteCandidate.bind(this);
     }
     async VoteCandidate() {
-        console.log(this.props);
         if(!this.props.activeUser) return;
         await submitVote(this.props.activeUser, this.props.ballot, this.props.data.owner);
     }

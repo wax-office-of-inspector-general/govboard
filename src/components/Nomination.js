@@ -9,7 +9,9 @@ import { withUAL } from 'ual-reactjs-renderer';
 import { jsx } from '@emotion/react';
 import * as GLOBAL_STYLE from '../theme';
 
-const wax = new waxjs.WaxJS(process.env.REACT_APP_WAX_RPC, null, null, false);
+const wax = new waxjs.WaxJS({
+    rpcEndpoint: process.env.REACT_APP_WAX_RPC
+});
 
 class Nomination extends React.Component {
     constructor(props) {
@@ -62,7 +64,6 @@ class Nomination extends React.Component {
                         upper_bound: this.props.accountName,
                         json: true,
                     });
-                    console.log(nomineeInfo);
                     if (Array.isArray(nomineeInfo.rows) && nomineeInfo.rows.length !== 0) {
                         const name = 'name' in nomineeInfo.rows[0] ? nomineeInfo.rows[0].name : '';
                         const picture = 'picture' in nomineeInfo.rows[0] ? nomineeInfo.rows[0].picture : '';
@@ -80,7 +81,6 @@ class Nomination extends React.Component {
                         });
                     }
                 }
-                console.log(this.state);
             }
         } catch (e) {
             console.log(e);
@@ -91,12 +91,26 @@ class Nomination extends React.Component {
         const transaction = {
             actions: [
                 {
+                    account: "eosio.token",
+                    name: "transfer",
+                    authorization: {
+                        actor: this.state.activeUser.accountName,
+                        permission: this.state.activeUser.requestPermission,
+                    },
+                    data: {
+                        from: this.state.activeUser.accountName,
+                        to: "oig",
+                        quantity: "100.00000000 WAX",
+                        memo: `nomination fee for ${this.state.nominee}`,
+                    },
+                },
+                {
                     account: 'oig',
                     name: 'nominate',
                     authorization: [
                         {
                             actor: this.state.activeUser.accountName,
-                            permission: 'active',
+                            permission: this.state.activeUser.requestPermission,
                         },
                     ],
                     data: {
@@ -136,12 +150,12 @@ class Nomination extends React.Component {
                         name: 'proclaim',
                         authorization: [
                             {
-                                actor: this.props.accountName,
-                                permission: 'active',
+                                actor: this.state.activeUser.accountName,
+                                permission: this.state.activeUser.requestPermission,
                             },
                         ],
                         data: {
-                            nominee: this.props.accountName,
+                            nominee: this.state.activeUser.accountName,
                             decision: true,
                         },
                     },
@@ -174,7 +188,7 @@ class Nomination extends React.Component {
                         authorization: [
                             {
                                 actor: this.props.accountName,
-                                permission: 'active',
+                                permission: this.state.activeUser.requestPermission,
                             },
                         ],
                         data: {
@@ -212,8 +226,8 @@ class Nomination extends React.Component {
                             name: 'nominf',
                             authorization: [
                                 {
-                                    actor: this.props.accountName,
-                                    permission: 'active',
+                                    actor: this.state.activeUser.accountName,
+                                    permission: this.state.activeUser.requestPermission,
                                 },
                             ],
                             data: {
@@ -320,7 +334,7 @@ class Nomination extends React.Component {
         return (
             <div className="nomination-form">
                 <GLOBAL_STYLE.H3>Nominate a Candidate</GLOBAL_STYLE.H3>
-                <GLOBAL_STYLE.P>Enter the WAX account name of the person you would like to nominate.</GLOBAL_STYLE.P>
+                <GLOBAL_STYLE.P>Enter the WAX account name of the person you would like to nominate. Note: A nomination requires a fee of 100 WAX tokens.</GLOBAL_STYLE.P>
                 <div
                     css={{
                         display: 'flex',
