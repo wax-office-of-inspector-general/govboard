@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Generate build for production
-        run: npm run build:prod
+        run: CI=false npm run build:prod
       - name: Deploy to IPFS
         uses: aquiladev/ipfs-action@v0.1.6
         with:
