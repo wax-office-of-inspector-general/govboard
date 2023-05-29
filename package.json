@@ -3,7 +3,6 @@
   "version": "0.1.8",
   "private": false,
   "proxy": "http://localhost:3000",
-  "homepage": "https://wax-office-of-inspector-general.github.io/govboard/",
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@eosdacio/ual-wax": "^1.9.0",
