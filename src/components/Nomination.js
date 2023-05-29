@@ -91,6 +91,20 @@ class Nomination extends React.Component {
         const transaction = {
             actions: [
                 {
+                    account: "eosio.token",
+                    name: "transfer",
+                    authorization: {
+                        actor: this.state.activeUser.accountName,
+                        permission: this.state.activeUser.requestPermission,
+                    },
+                    data: {
+                        from: this.state.activeUser.accountName,
+                        to: "oig",
+                        quantity: "100.00000000 WAX",
+                        memo: `nomination fee for ${this.state.nominee}`,
+                    },
+                },
+                {
                     account: 'oig',
                     name: 'nominate',
                     authorization: [
@@ -320,7 +334,7 @@ class Nomination extends React.Component {
         return (
             <div className="nomination-form">
                 <GLOBAL_STYLE.H3>Nominate a Candidate</GLOBAL_STYLE.H3>
-                <GLOBAL_STYLE.P>Enter the WAX account name of the person you would like to nominate.</GLOBAL_STYLE.P>
+                <GLOBAL_STYLE.P>Enter the WAX account name of the person you would like to nominate. Note: A nomination requires a fee of 100 WAX tokens.</GLOBAL_STYLE.P>
                 <div
                     css={{
                         display: 'flex',
