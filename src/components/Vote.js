@@ -134,6 +134,9 @@ class Vote extends React.Component {
                 limit: this.state.candidatesDisplayed,
                 json: true,
             });
+            
+            console.log(resp.rows);
+
             let displayPagination = 1;
             if (resp.rows.length > 10) {
                 displayPagination = 1;
