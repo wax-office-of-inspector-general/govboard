@@ -88,15 +88,18 @@ class Nomination extends React.Component {
     }
 
     async nominateCandidate() {
+        console.log(this.state.activeUser);
         const transaction = {
             actions: [
                 {
-                    account: "eosio.token",
-                    name: "transfer",
-                    authorization: {
-                        actor: this.state.activeUser.accountName,
-                        permission: this.state.activeUser.requestPermission,
-                    },
+                    account: 'eosio.token',
+                    name: 'transfer',
+                    authorization: [
+                        {
+                            actor: this.state.activeUser.accountName,
+                            permission: this.state.activeUser.requestPermission,
+                        }
+                    ],
                     data: {
                         from: this.state.activeUser.accountName,
                         to: "oig",
