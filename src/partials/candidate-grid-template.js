@@ -71,7 +71,7 @@ class CandidateGrid extends React.Component {
                 <div className="content">
                     <GLOBAL_STYLE.H4 className="account">{this.props.data.name}</GLOBAL_STYLE.H4>
                     <GLOBAL_STYLE.P className="owner">{this.props.data.owner}</GLOBAL_STYLE.P>
-                    <GLOBAL_STYLE.H6 className="voteCount">{this.props.data.value}S</GLOBAL_STYLE.H6>
+                    <GLOBAL_STYLE.H6 className="voteCount">{this.props.data.value}</GLOBAL_STYLE.H6>
                 </div>
                 {
                     this.props.electionState === 4 // voting open

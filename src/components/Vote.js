@@ -561,7 +561,7 @@ class Winner extends Vote {
                 />
                 <GLOBAL_STYLE.H3>{this.state.name}</GLOBAL_STYLE.H3>
                 <GLOBAL_STYLE.H5>{this.props.data.key}</GLOBAL_STYLE.H5>
-                <GLOBAL_STYLE.H5>{this.props.data.value}S</GLOBAL_STYLE.H5>
+                <GLOBAL_STYLE.H5>{this.props.data.value}</GLOBAL_STYLE.H5>
             </div>
         );
     }
