@@ -160,7 +160,7 @@ class CandidateSingle extends React.Component {
                 }}
             >
                 <GLOBAL_STYLE.H2>{this.state.name}</GLOBAL_STYLE.H2>
-                <GLOBAL_STYLE.H4>{this.state.votes}Loading Votes...</GLOBAL_STYLE.H4>
+                <GLOBAL_STYLE.H4>{this.state.votes}</GLOBAL_STYLE.H4>
                 <img className="image" src={this.state.picture} alt={this.state.nominee} />
                 {this.props.electionState === 4 && this.props.activeUser ? (
                     <React.Fragment>
@@ -172,7 +172,11 @@ class CandidateSingle extends React.Component {
                     <React.Fragment></React.Fragment>
                 )}
                 <div className="candidateInformation">
-                    <GLOBAL_STYLE.P className="description">{this.state.description}</GLOBAL_STYLE.P>
+                    <GLOBAL_STYLE.P className="description" css={{
+                        whiteSpace: 'pre-line',
+                        paddingTop: '20px',
+                        paddingBottom: '20px'
+                    }}>{this.state.description}</GLOBAL_STYLE.P>
                     {this.state.twitter || this.state.telegram || this.state.wechat ? (
                         <React.Fragment>
                             <GLOBAL_STYLE.H3>Social Media</GLOBAL_STYLE.H3>

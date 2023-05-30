@@ -134,8 +134,6 @@ class Vote extends React.Component {
                 limit: this.state.candidatesDisplayed,
                 json: true,
             });
-            
-            console.log(resp.rows);
 
             let displayPagination = 1;
             if (resp.rows.length > 10) {
@@ -427,7 +425,7 @@ class Vote extends React.Component {
                 >
                     <div>
                         {this.renderElectionStatus()}
-                        <GLOBAL_STYLE.P>{this.state.description}</GLOBAL_STYLE.P>
+                        <GLOBAL_STYLE.P css={{ whiteSpace: 'pre-wrap' }}>{this.state.description.replace('<br/>', '\n')}</GLOBAL_STYLE.P>
                         {this.renderBallotID()}
                     </div>
                     <div>
@@ -479,15 +477,18 @@ class Vote extends React.Component {
                                 {this.renderElectionDates()}
                             </div>
                             <div>
-                                <div id="castvote">
-                                </div>
+                                <GLOBAL_STYLE.P css={{
+                                    marginTop: '20px'
+                                }}>
+                                    <span id="castvote"></span>
+                                </GLOBAL_STYLE.P>
                                 {this.state.electionState < 3 ? "" : <GLOBAL_STYLE.H2>Candidates</GLOBAL_STYLE.H2>}
                                 {this.state.candidates !== [] ? (
                                     <React.Fragment>
                                         {this.state.candidates
                                             .slice(this.state.prevPage, this.state.nextPage)
                                             .map((candidate, key) => (
-                                                <CandidateGrid data={candidate} ballot={this.props.ballot} activeUser={this.props.activeUser} electionState={this.props.electionState} />
+                                                <CandidateGrid key="key" data={candidate} ballot={this.props.ballot} activeUser={this.props.activeUser} electionState={this.props.electionState} />
                                             ))}
                                     </React.Fragment>
                                 ) : (

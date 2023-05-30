@@ -88,7 +88,6 @@ class Nomination extends React.Component {
     }
 
     async nominateCandidate() {
-        console.log(this.state.activeUser);
         const transaction = {
             actions: [
                 {

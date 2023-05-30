@@ -92,7 +92,7 @@ class CandidateGrid extends React.Component {
                 <React.Fragment></React.Fragment>
                     )
                 }
-                <GLOBAL_STYLE.CustomLink text className="candidateLink" to={'/candidates/' + this.props.data.owner}>
+                <GLOBAL_STYLE.CustomLink text="true" className="candidateLink" to={'/candidates/' + this.props.data.owner}>
                     Learn more about {this.props.data.name}
                 </GLOBAL_STYLE.CustomLink>
             </div>
